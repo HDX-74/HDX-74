@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+        * @param {number[]} nums
+        * @return {number}
+        */
+        var singleNumber = function (nums) {
+
+            // return nums.reduce((a,b)=>a^b)  //异或操作
+
+            let array = new Array();
+            nums.map(item => {
+                if (nums.indexOf(item) == nums.lastIndexOf(item)) {
+                    array.push(item);
+                }
+            })
+            return array
+        };
+        console.log(singleNumber([1,2,1,2,3,3,5,4,8,4,5]))
+    </script>
+</body>
+
+</html>

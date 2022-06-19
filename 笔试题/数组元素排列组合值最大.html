@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //输入一个数组求数组元素排列组合可形成的最大值
+        //  params
+        /*
+        例1：nums=[10,2]
+            max=210
+        例2：nums=[3,30,34,4,9]
+            max=9434330
+        例3：nums=[10]
+            max=10
+        */
+
+        //参数数量不定
+        //输入标准：数字以英文‘,’逗号隔开
+        function main(param_1, param2, param_n) {
+            let array = [];
+            for (var index = 0; index < arguments.length; index++) {
+                array.push(arguments[index])
+            }
+            console.log(array)
+        }
+
+        function main2(param_1, param2, param_n) {
+            // arguments对象不是一个 Array 。它类似于Array，但除了length属性和索引元素之外没有任何Array属性。
+            // 例如，它没有 pop 方法。但是它可以被转换为一个真正的Array：
+
+            //查看call和apply的用法
+            // https://blog.csdn.net/weixin_42561383/article/details/90828045
+
+            // https://blog.csdn.net/isoble/article/details/72490113
+
+            let arr = Array.prototype.slice.call(arguments);  //arguments对应函数的参数，将arguments转化为数组  方法1
+            // let arr=[...arguments]  //arguments对应函数的参数，将arguments转化为数组  方法2
+            // let arr = Array.prototype.slice.apply(arguments);  //arguments对应函数的参数，将arguments转化为数组  方法3
+            // let arr = [].slice.apply(arguments);  //arguments对应函数的参数，将arguments转化为数组  方法4
+            //let arr=Array.from(arguments) 方法5
+            console.log(arr.sort(function (a, b) { return a - b }))
+
+        }
+
+        function permute(input) {
+            var permArr = [],
+                usedChars = [];
+            function main(input) {
+                for (let i = 0; i < input.length; i++) {
+                    let ch = input.splice(i, 1)[0];
+                    usedChars.push(ch);
+                    if (input.length == 0) {
+                        permArr.push(usedChars.slice());
+                    }
+                    main(input);
+                    input.splice(i, 0, ch);
+                    usedChars.pop();
+                }
+                return permArr
+            }
+            return main(input);
+        };
+        console.log(permute([5, 3, 7, 1]));
+
+        // main(10, 2)
+        // main2(12, 4, 5)
+    </script>
+</body>
+
+</html>

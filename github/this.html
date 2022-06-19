@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //调用this的方式见html/this指向.html
+        // 1.this是什么？
+        // 任何函数本质上都是通过某个对象来调用的，如果没有指定就是window对象
+        // 所有函数内部都有一个变量this
+        // 它的值是调用函数的当前对象
+
+        // 2.
+
+        var arr = [1, 2, 3];
+        var arr2 = [4, 5];
+        console.log(arr2.slice());		//[4,5]
+        console.log(arr2.slice.apply(arr));		//[1,2,3]
+        // 从上面可以看出，将 slice() 的 this 对象从 arr2 变为 arr 后，slice() 方法的作用对象就变成 arr 了
+
+        // 谁调用构造函数this就指向谁，谁最后调用构造函数this就指向谁
+        function Person(color) {
+            console.log(this)
+            this.color = color
+            this.getColor = function () {
+                console.log(this)
+                return this.color
+            }
+            this.setColor = function () {
+                console.log(this)
+                this.color = color
+            }
+        }
+        Person('red')   //this指向window ，函数调用模式
+
+        let p = new Person("yello")   //this指向p,构造器调用模式
+
+        p.getColor()    //this指向p，方法调用模式
+
+        let obj = {}
+
+        p.setColor.call(obj, "black")    //this指向obj，call调用模式
+
+        let test = p.setColor   //js函数调用时加括号和不加括号的区别.不加括号相当于把函数代码赋给等号左边,加括号是把函数返回值赋给等号左边
+
+        test()  //this指向window，函数调用模式
+
+        function fun1() {
+            function fun2() {
+                console.log(this)
+            }
+            fun2()  //this指向window
+        }
+        fun1()   //函数调用
+
+    </script>
+</body>
+
+</html>

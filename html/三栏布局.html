@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三栏布局中间自适应</title>
+    <style>
+        /* 两边使用float,中间使用margin */
+        .warp {
+            height: 30px;
+            overflow: hidden;
+            /* 生成BFC，计算高度时考虑浮动的元素 */
+        }
+
+        .left {
+            float: left;
+            width: 100px;
+            height: 30px;
+            background-color: green;
+        }
+
+        .mid {
+            margin-left: 100px;
+            margin-right: 100px;
+            width: auto;
+            height: 30px;
+            background-color: lightseagreen;
+        }
+
+        .right {
+            float: right;
+            width: 100px;
+            height: 30px;
+            background-color: green;
+        }
+
+        /* 两边使用absolute ,中间使用margin*/
+        .warp1 {
+            height: 30px;
+            overflow: hidden;
+            position: relative;
+            top: 10px;
+        }
+
+        .left1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 30px;
+            background-color: green;
+        }
+
+        .mid1 {
+            margin-left: 100px;
+            margin-right: 100px;
+            width: auto;
+            height: 30px;
+            background-color: lightseagreen;
+        }
+
+        .right1 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 30px;
+            background-color: green;
+        }
+
+        /* 使用flex弹性布局 */
+        .warp2 {
+            display: flex;
+            overflow: hidden;
+            height: 30px;
+            position: relative;
+            top: 20px;
+            /* justify-content: space-between; */
+        }
+
+        .left2,
+        .right2 {
+            height: 30px;
+            width: 100px;
+            /* 左右栏宽度与实际不符 */
+            background-color: green;
+        }
+
+        .mid2 {
+            height: 30px;
+            width: 100%;
+            background-color: lightseagreen;
+        }
+
+        /* grid网格布局 */
+        .warp3 {
+            display: grid;
+            grid-template-columns: 100px auto 100px;
+            grid-template-rows: 30px;
+            overflow: hidden;
+            position: relative;
+            top: 30px;
+        }
+
+        .left3 {
+            height: 30px;
+            background-color: green;
+        }
+
+        .mid3 {
+            height: 30px;
+            background-color: lightseagreen;
+        }
+
+        .right3 {
+            height: 30px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="warp">
+        <div class="left">左</div>
+        <div class="right">右</div>
+        <div class="mid">中</div>
+    </div>
+    <div class="warp1">
+        <div class="left1">左</div>
+        <div class="mid1">中</div>
+        <div class="right1">右</div>
+    </div>
+    <div class="warp2">
+        <div class="left2">左</div>
+        <div class="mid2">中</div>
+        <div class="right2">右</div>
+    </div>
+    <div class="warp3">
+        <div class="left3">左</div>
+        <div class="mid3">中</div>
+        <div class="right3">右</div>
+    </div>
+</body>
+
+</html>

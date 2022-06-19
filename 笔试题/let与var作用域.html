@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script>
+        //每隔1秒打印数字
+        //var没有块级作用域 打印5，5，5，5，5
+        for (var j = 0; j < 5; j++) {
+            setTimeout(() => {
+                console.log(j)
+            }, 1000)
+        }
+
+        //let有块级作用域 打印0，1，2，3，4
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+                console.log(i)
+            }, i * 1000)
+        }
+
+        // 使用闭包属性模仿var变量的作用域,打印0，1，2，3，4
+        for (var j = 0; j < 5; j++) {
+            (function (item) {  //模拟块
+                setTimeout(() => {
+                    console.log(item)
+                }, item * 1000)
+            })(j)
+        }
+
+        var a = 3
+        function fn() {  //变量提升与作用域
+            console.log(a)  //属于变量提升 
+            var a = 4
+
+            //同以下写法
+            // var a;   //就近解析
+            // console.log(a)
+            // a=4
+        }
+
+        fn()    //undefined
+
+        console.log(b)
+        var b = 3
+        // let b=3  let没有变量提升，运行报错
+
+        fn2()   //函数提升
+        // fn3()   //属于变量提升，报错
+
+        function fn2() {
+            console.log('fn2')
+        }
+
+        var fn3 = function () {
+            console.log('fn3')
+        }
+
+        //变量提升例题 
+        //https://www.nowcoder.com/test/question/done?tid=48611724&qid=50516#referAnchor
+        
+        if (!'a' in window) {   //变量提升
+            var a = "s"     //var是全局变量，会被先解析
+        }
+
+        console.log('a' in window)
+        console.log(a)
+
+        // 同以上写法
+        var a;
+        if (! 'a' in window) {
+            a = 1
+        }
+        console(a)
+
+        var foo = function (x, y) {
+            return x - y;
+        }
+        function foo(x, y) {
+            return x + y;
+        }
+        var num = foo(1, 2);
+
+        console.log(num) //-1
+
+    </script> -->
+
+    <script>
+        let a = []
+        for (var i = 0; i < 10; i++) {
+            a[i] = function () {
+                console.log(i)
+            }
+        }
+        a[6]()
+        for (let j = 0; j < 10; j++) {
+            a[j] = function () {
+                console.log(j)
+            }
+        }
+        a[6]()
+
+        var name = 'World!';
+        (function () {
+            if (typeof name === 'undefined') {
+                var name = 'Jack';
+                console.log('Goodbye ' + name);
+            } else {
+                console.log('Hello ' + name);
+            }
+        })();//Goodbye Jack，相当于下面写法
+
+        // var name = 'World!';
+        // (function () {
+        //     var name;
+        //     if (typeof name === 'undefined') {
+        //         name = 'Jack';
+        //         console.log('Goodbye ' + name);
+        //     } else {
+        //         console.log('Hello ' + name);
+        //     }
+        // })(); 
+        var str = 'World!';   
+        (function (name) {
+            if (typeof name === 'undefined') {
+                var name = 'Jack';
+                console.log('Goodbye ' + name);
+            } else {
+                console.log('Hello ' + name);
+            }
+        })(str);//Hello World
+
+
+
+    </script>
+</body>
+
+</html>

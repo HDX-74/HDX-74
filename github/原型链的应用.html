@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Fun() {
+
+        }
+        Fun.prototype.a = 'xxx'
+
+        let fn1 = new Fun()
+        console.log(fn1.a)  //xxx
+
+        let fn2 = new Fun()
+        fn2.a = 'yyy'
+        console.log(fn2.a)  //yyy
+
+        function Person(name, age) {
+            this.name = name
+            this.age = age
+        }
+
+        Person.prototype.setName=function(name){
+            this.name=name
+        }
+        let p1=new Person('Tom',12)
+        console.log(p1.name) //Tom
+        p1.setName('Bob')
+        console.log(p1.name) //Bob
+
+        let p2=new Person('Jack',13)
+        p2.setName('Lose')
+        console.log(p2.name) //Lose
+
+        console.log(p1.__proto__===p2.__proto__)    //true
+    </script>
+</body>
+
+</html>

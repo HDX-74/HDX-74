@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input value="按钮" type="button">
+    <script>
+        document.querySelector('input').addEventListener('click', function () {
+            document.write(countPrimes(3))
+        })
+        /**
+        * @param {number} n
+        * @return {number}
+        */
+        // var countPrimes = function (n) {    //运行时间长，效率低
+        //     let arr = new Array();
+        //     for (let i = 2; i < n; i++) {
+        //         arr.push(i)
+        //         for (let j = 2; j * j <= i; j++) {
+        //             if (i % j === 0) {
+        //                 arr.pop();
+        //                 break;
+        //             }
+        //         }
+        //     }
+        //     return arr.length
+        // };
+
+        /**
+         * @param {number} n
+         * @return {number}
+         */
+        var countPrimes = function (n) {
+            const d = Array(n).fill(true);
+            let count = 0;
+            for (let i = 2; i < n; i++) {
+                if (d[i]) {
+                    count++;
+                    for (let j = i * i; j < n; j += i) {
+                        d[j] = false;
+                    }
+                }
+            }
+            return count;
+        };
+
+
+        // const isPrime = (x) => {     //判断素数
+        //     for (let i = 2; i * i <= x; ++i) {
+        //         if (x % i == 0) {
+        //             return false;
+        //         }
+        //     }
+        //     return true;
+        // }
+
+        // var countPrimes = function (n) {
+        //     let ans = 0;
+        //     for (let i = 2; i < n; ++i) {
+        //         ans += isPrime(i);
+        //     }
+        //     return ans;
+        // };
+
+
+    </script>
+</body>
+
+</html>

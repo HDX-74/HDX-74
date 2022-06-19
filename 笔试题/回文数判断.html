@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function palindromic(str) {
+            //定义一个字符串，把不用考虑的元素删除掉
+            let newStr = str.replace(/[^\da-zA-Z]/g, '').toLowerCase()//这里的正则表示：除了数字字母以外的字符
+            //定义一个新的字符串，顺序颠倒后的字符串
+            let reverseStr = newStr.split('').reverse().join('')//先转化成数组，再颠倒一下，再转化成字符串
+            // 判断两个字符串是否相等
+            if (newStr == reverseStr) {
+                return true
+            } else {
+                return false
+            }
+        }
+
+    
+    </script>
+</body>
+
+</html>

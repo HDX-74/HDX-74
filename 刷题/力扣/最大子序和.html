@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [-2, -1]
+
+        let resultAll = function (nums) {
+            let pre = 0, maxAns = nums[0];
+            nums.forEach((x) => {
+                pre = Math.max(pre + x, x);
+                maxAns = Math.max(maxAns, pre);
+            });
+            return maxAns;
+        }
+        console.log(resultAll(arr))
+    </script>
+</body>
+
+</html>

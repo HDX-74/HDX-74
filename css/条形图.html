@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            /*弹性盒模型容器*/
+            align-items: flex-end;
+            /*子元素对齐底部*/
+            justify-content: space-around;
+            width: 320px;
+            height: 300px;
+            border-left: 1px solid black;
+            border-bottom: 1px solid gray;
+        }
+
+        div {
+            width: 30px;
+            height: 200px;
+        }
+
+        div:nth-child(1) {
+            height: 30%;
+            background-color: #f00;
+        }
+
+        div:nth-child(2) {
+            height: 80%;
+            background-color: #ddd;
+        }
+
+        div:nth-child(3) {
+            height: 70%;
+            background-color: #0fd;
+        }
+
+        div:nth-child(4) {
+            height: 60%;
+            background-color: #ff0;
+        }
+
+        div:nth-child(5) {
+            height: 90%;
+            background-color: #0ff;
+        }
+    </style>
+</head>
+
+<body>
+        <div>
+        </div>
+        
+        <div>
+        </div>
+
+        <div>
+        </div>
+
+        <div>
+        </div>
+
+        <div>
+        </div>
+</body>
+
+</html>

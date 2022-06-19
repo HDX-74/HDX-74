@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //测试题一
+        function A() {
+
+        }
+
+        A.prototype.n = 1
+
+        let b = new A()
+
+        A.prototype = {
+            n: 2,
+            m: 3
+        }
+
+        let c = new A()
+        // console.log(b.n, b.m, c.n, c.m)    //1, undefined ,2,3
+    
+        //测试题二
+        let F=function(){
+            Object.prototype.a=function(){
+                console.log('a')
+            }
+            Function.prototype.b=function(){
+                console.log('b')
+            }
+        }
+
+        var f=new F()
+        
+        // f.a()   //a
+        // f.b()   //Uncaught TypeError
+        // F.a()   //a
+        // F.b()   //b
+
+        console.log(f)
+        console.log(Object.prototype)
+        console.log(Function.prototype)
+    </script>
+</body>
+
+</html>

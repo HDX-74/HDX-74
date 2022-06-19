@@ -1,0 +1,44 @@
+1.axaj的方式，post/get区别
+              创建异步调用对象：xmlhttprequest
+              创建http请求，指定请求方法、URL和验证信息
+              设置响应http请求状态变化的函数
+              发送http请求
+              获取异步调用返回数据
+              使用js和dom实现局部刷新
+2.http状态码 200: 成功请求返回结果
+             301: URL永久重定向
+             302：URL临时重定向
+             403：服务器拒绝客户请求
+             404：请求的资源不存在
+             500：服务器遇到未知错误
+             503：服务器过载，无法处理请求
+3.css块平移与旋转 transform:translate(50px, 100px);//分别在x,y方向上平移偏移50px,100px;transform: rotate(20deg);//顺时针旋转20度
+4.清除浮动: <div style='clear:both'></div>
+            overflow:auto/hidden
+            :after{
+                clear:both
+            }
+           
+5.http中get和post
+6.解决跨域的策略：jsonp原理（动态创建<script>标签，由于该标签的src允许跨域，通过src调用服务器的js脚本就不会被限制）
+                 document.domain+iframe
+                 window.name+iframe(window.postMessage和window.onmessage)
+7.jsop的理解
+8.v-model原理
+9.浏览器输入url到页面渲染的过程： 1.DNS域名解析得到IP地址   
+                                2.建立Tcp三次握手   
+                                3.浏览器发送http请求  
+                                4.服务器处理请求返回http报文 
+                                5.浏览器得到html文档，开始渲染解析（先解析html构建Dom树,再解析css生成css规则树，然后合并树开始布局绘制）  
+                                6.Tcp四次挥手断开连接
+10.防抖与节流，应用场景
+11.可以继承的css属性
+12.全排列算法
+13.将一个数组中的*全部移到字母的后面，字母顺序不变
+14.形成BFC（块格式化上下文）的触发条件：float:right/left
+                                      position:absolute/fixed
+                                      overflow:不为visiale
+                                      display:gird,flex,inline-block...
+15.ES6新特性，Promise的使用，异步编程，前端数据可视化，css伪类伪选择器，flex弹性布局，事件捕获处理冒泡，防抖节流，事件代理，缓存机制，盒子模型，css像素单位
+事件代理：好处，描述
+回流重绘

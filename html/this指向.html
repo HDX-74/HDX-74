@@ -1,0 +1,79 @@
+<!--
+ * @Description: 
+ * @Author: 黄佳伟
+ * @Date: 2022-03-09 16:50:59
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- this 指向最后一次调用这个方法的对象 -->
+    <script>
+        //方法调用模式
+        var myObject = {
+            value: 1,
+            increment: function () {
+                this.value++
+            }
+        }
+        myObject.increment()// myObject 调用 increment() 方法，this 指向 myObject 对象 
+        console.log(myObject.value)
+
+        //函数调用模式
+        var value = 2
+
+        const increment = () => {
+            this.value++
+        }
+        increment()// 作为函数调用， this 绑定到全局对象
+        console.log(value)
+
+        //构造器调用模式
+        function person() {
+            this.name = 'xiaoming'
+        }
+        const p = new person()//如果在一个函数前面带上new来调用，那么背地里将会创建一个连接到该函数的prototype成员的新对象，同时this会绑定到那个新对象上。
+        console.log(p.name)
+        // console.log(typeof (fn.prototype))
+
+        //函数字面量创建add
+        var add = function (a, b) {
+            return a + b;
+        }
+        var myObject = {
+            value: 0,
+            increment: function (inc) {
+                this.value += typeof inc === 'number' ? inc : 1;
+            }
+        }
+
+        myObject.increment();
+        document.writeln(myObject.value); //1
+
+        myObject.increment(2);
+        document.writeln(myObject.value); //3
+
+        //给myObject增加一个double方法
+        myObject.double = function () {
+            var that = this;//解决方法
+
+            var helper = function () {
+                that.value = add(that.value, that.value);
+            }
+            helper();  //以函数的形式调用helper
+        }
+
+        //以方法的形式调用double
+        myObject.double();
+        document.writeln(myObject.value); //6
+    
+    </script>
+</body>
+
+</html>

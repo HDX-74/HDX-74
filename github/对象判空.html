@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let object=new Object()
+        console.log(JSON.stringify(object)==='{}'?true:false)
+        console.log(Object.keys(object).length===0?true:false)
+
+        console.log(JSON.stringify({a:1,b:2,c:'d'}))
+    </script>
+</body>
+</html>

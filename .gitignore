@@ -1,0 +1,15 @@
+# 忽略所有的 .a 文件
+*.a
+# 忽略所有的 .o 文件
+*.o
+
+# production
+/dist
+/.vscode
+
+# dependencies
+**/node_modules
+
+# visual studio code
+.history
+*.log

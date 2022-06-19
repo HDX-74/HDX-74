@@ -1,0 +1,71 @@
+<!--
+ * @Description: 
+ * @Author: 黄佳伟
+ * @Date: 2022-03-09 16:50:59
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 利用闭包排序json对象数组，见笔试题文件夹 -->
+
+    <button type="button">click me</button>
+    <script>
+        let btn = document.querySelectorAll('button')
+        btn.forEach(item => {
+            let interval = false
+            item.addEventListener('click', () => {
+                if (!interval) {
+                    let left = 1
+                    interval = true
+                    setInterval(() => {
+                        item.style.left = left++ + 'px'
+                    }, 100);
+                }
+
+            })
+        })
+
+        //每隔一秒打印1，2，3，4
+        function prints() {
+            let i = 1
+            while (i < 5) {
+                (function (i) {
+                    setTimeout(() => {
+                        console.log(i)
+                    }, i * 1000);
+                })(i)
+                i++
+            }
+        }
+        prints()
+
+        // 使用闭包属性模仿var变量的作用域,打印0，1，2，3，4
+        // for (var j = 0; j < 5; j++) {
+        //     (function (item) {  //模拟块
+        //         setTimeout(() => {
+        //             console.log(item)
+        //         }, item * 1000)
+        //     })(j)
+        // }
+        var string = 'string'; var number = 0; var bool = true; 
+        console.log(number || string)
+         console.log(number && string)
+         console.log(bool || number) 
+        console.log(bool && number)
+        var a = 123; function A1() { console.log(a); }function A2() { var a = 456; A1(); }A2()
+    </script>
+</body>
+
+</html>

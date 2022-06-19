@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function duplicates(arr) {
+            let array = new Set();
+            arr.map(item => {
+                if (arr.join('').match(eval("/" + item + "/g")).length > 1) {
+                    array.add(item);
+                }
+            })
+            return Array.from(array);
+        }
+        // console.log(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3]))
+
+        function duplicatesOne(arr) {
+            let array = new Set();
+            arr.map(item => {
+                if (arr.indexOf(item) !== arr.lastIndexOf(item)) {
+                    array.add(item);
+                }
+            })
+            return Array.from(array);
+        }
+        // console.log(duplicatesOne([1, 2, 4, 4, 3, 3, 1, 5, 3]))
+        let a='s'
+        //查找出现次数最多的元素
+        function maxFind(arr) {
+            let maps = new Map()
+            let str=arr.join('')
+            let max=0;
+            let s=''
+            arr.map(item => {
+                maps.set(item,str.match(eval("/" + item + "/g")).length)
+            })
+            maps.forEach((value,key)=>{
+                if(value>max){
+                    s=key
+                    max=value
+                }
+            })
+            return s+':'+max
+        }
+        console.log(maxFind([1,2,3,1,3,2,5,2,8,6,4]))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //字符串 使用对象存储
+        let str = "dsafsvxvsd"
+        let obj = {}
+        for (let i = 0; i < str.length; i++) {
+            let char = str.charAt(i)
+            if (obj[char]) {
+                obj[char]++
+            } else {
+                obj[char] = 1
+            }
+        }
+        // console.log(obj)
+        let max = 0, ch = '';
+        Object.keys(obj).forEach(function (index) {
+            if (obj[index] > max) {
+                max = obj[index]
+                ch = index
+            }
+        })
+        console.log(ch, max)
+
+        
+
+        //数组
+        function getMost(arr) {
+            let ch = '';    //出现次数最多的元素
+            let num = 1;    //该元素出现次数
+            arr.reduce((p, k) => {    //对该数组进行reduce遍历
+                p[k] ? p[k]++ : p[k] = 1;  //k代表当前正在遍历的元素。应用到p[k]里，k表示p对象里的一个键，p[k]表示该键对应的值。不懂的话用如下图对象测一下就懂了
+                if (p[k] > num) {
+                    num = p[k]
+                    ch = k
+                }
+                return p    //最后返回一个对象
+            }, {})
+            return { ch: ch, num: num }
+        }
+        let arr = [2, 3, 4, 5, 'a', 2, 3, 2, 'a', 'd', 'b']
+        console.log(getMost(arr))
+    </script>
+</body>
+
+</html>

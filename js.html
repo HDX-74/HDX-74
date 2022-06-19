@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .demo {
+            height: 92px; 
+            width: 44px;
+            overflow-y: auto; 
+            margin: 30px; 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+        <div>语文</div>
+        <div>数学</div>
+        <div>音乐</div>
+        <div>历史</div>
+        <div>地理</div>
+        <div>政治</div>
+    </div>
+    <!-- <script>
+        // var a = 10;
+        function a() { }
+        var rex = new RegExp()
+
+        console.log(new Boolean(''))    //false
+        console.log(new Boolean(NaN))    //false
+        console.log(new Boolean(undefined))  //false
+        console.log(new Boolean(null))  //false
+        console.log(new Number(undefined))  //NaN
+        console.log(new Number({}))  //NaN
+        console.log(new Number(null))   //0
+
+        console.log(false == undefined);    //false
+        console.log(false == null);      //false
+        console.log(false == 0);    //true
+        console.log(false == "");   //true
+        console.log(null == undefined);     //true
+        //0,''.,false为一类，称为假值
+        //null,undefined 为一类，称为空值
+
+        //    console.log( ["1", "2", "10","10"].map(parseInt) )
+
+        function Person() {
+            this.name = "nchu"
+        }
+        let per = new Person()
+        console.log(per instanceof Person)
+        console.log(per.name)
+        let jon = { name: 'nchu', age: 18 }
+        let str = JSON.stringify(jon)
+        console.log(str)
+        console.log(JSON.parse(str))
+
+    </script> -->
+
+    <script>
+        // var obj = { a: 1, b: function () { alert(this.a) } };
+        // var fun = obj.b;
+        // fun();
+
+        // console.log(parseInt("w1w"))
+        // console.log((0.2 + 0.4).toFixed(1))
+        // var x = 10;
+
+        // function cals(myNum) {
+        //     return x + myNum;
+        // }
+
+        // console.log(typeof cals())
+        // console.log(cals(7))
+
+        // var b = 3;
+        // (function () {
+        //     b = 5;
+        //     var b = 2;
+        // })();
+        // console.log(b);
+
+        // var f = function g() {
+        //     return 23;
+        // };
+        // typeof g;
+
+        // function Foo() {
+        //     var i = 0;
+        //     return function () {
+        //         console.log(i++);
+        //     }
+        // }
+
+        // var f1 = Foo(),
+        //     f2 = Foo();
+        // f1();
+        // f1();
+        // f2();
+            let a=[]
+            a[0]=1
+            a[1]=7
+            a[3]=5
+            console.log(a[2])//undefined
+            console.log(a.length)//4       
+    </script>
+</body>
+
+</html>

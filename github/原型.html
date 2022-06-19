@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<p>应用：笔试题（数组元素排列组合值最大）</p>
+
+<body>
+    <script>
+        /**
+        * 1.定义构造函数
+        * 2.创建实例对象
+        * 3.添加原型属性方法
+        * 4.通过实例调用原型的方法
+        */
+
+        // console.log(Date)
+
+        //每个构造函数都有一个prototype属性，它默认指向一个空Object对象（即称为：原型对象）,prototype称为显式原型
+        function Fun() {
+
+        }
+            
+        // console.log(Fun)
+
+        console.log(Fun.prototype)
+
+        //原型对象中有一个属性constructor，它指向函数对象，即指向函数本身
+        console.log(Fun.prototype.constructor === Fun)
+
+        //添加原型方法或者属性（即变量）
+        Fun.prototype.test = function () {
+            console.log("test")
+        }
+        //每个实例对象还有一个__proto__属性，称为隐式原型:创建对象时自动添加的，默认值为构造函数的prototype属性值
+        let fun = new Fun() //内部语句 this.__proto__=Fun.prototype
+        //通过实例对象访问
+
+        console.log(fun.__proto__)
+
+        console.log(Fun.prototype === fun.__proto__)
+
+        fun.test()
+
+    </script>
+</body>
+
+</html>

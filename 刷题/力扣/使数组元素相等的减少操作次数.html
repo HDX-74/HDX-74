@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta b="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+       * @param {number[]} nums
+       * @return {number}
+       */
+        var reductionOperations = function (nums) {
+            console.log(Object.keys(countTimes(nums)))
+            let arr = Object.values(countTimes(nums))
+            let sum = 0
+            let cur = 0
+            for (let i = arr.length - 1; i > 0; i--) {
+                cur = arr[i] * i
+                sum += cur
+            }
+            return sum
+        };
+        console.log(reductionOperations([1,1,2,2,3]))
+
+        //统计数组中每个元素出现的次数      
+        function countTimes(data) {
+            return data.reduce(function (a, b) {
+                if (b in a) {
+                    a[b]++;
+                } else {
+                    a[b] = 1;
+                }
+                return a;
+            }, {});
+        };
+
+    </script>
+</body>
+
+</html>

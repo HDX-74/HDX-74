@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button">获取窗口宽高</button>
+    <button type="button">打开新窗口</button>
+    <button type="button" id='close'>关闭新窗口</button>
+    <button type="button" id='move'>移动窗口</button>
+    <button type="button" id='size'>调整窗口尺寸</button>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        let myWindow;
+        let btn = document.querySelectorAll('button')
+        btn[0].addEventListener("click", () => {
+            document.write(window.innerHeight+"/"+ window.innerWidth)//浏览器内部宽高
+        })
+        btn[1].onclick = () => {
+           myWindow = window.open('../test.html', '_blank')
+        }
+        $('#close').bind('click',()=>{
+            myWindow.close()
+        })
+        $('#move').on('click',()=>{
+            window.moveTo(0,100)
+        })
+        $('#size').on('click',()=>{
+            let w=window.open('','', 'width=100,height=100');
+            w.resizeTo(500,500)
+            w.moveTo(100,100)
+        })
+    </script>
+</body>
+
+</html>

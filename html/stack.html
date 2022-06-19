@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src='../js/stack.js'></script>
+    <script>
+        // let stack = new StackByArray()
+    
+        // stack.push(1)
+        // console.log(stack.size())
+        // console.log(stack.isEmpty())
+
+        let stack2 =new StackByObject()
+        stack2.push(2)
+        stack2.push(1)
+        stack2.push(3)
+        stack2.push(4)
+        stack2.push(6)
+        stack2.push(5)
+        stack2.pop()
+        console.log(stack2.size())
+        // stack2.pop()
+        console.log(stack2.toString())
+
+        // console.log(Object.getOwnPropertyNames(stack2))
+        // console.log(Object.keys(stack2))
+        // console.log(stack2.items)
+
+        //使用栈解决十进制转为二进制
+        let stack = new StackByObject()
+        console.log(baseConverter(100345,16))
+        
+    </script>
+</body>
+</html>

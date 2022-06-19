@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //闭包的使用
+
+        let arr = [
+            { name: "abc", age: 12, score: 100 },
+            { name: "bbc", age: 12, score: 80 },
+            { name: "ccc", age: 11, score: 90 },
+            { name: "lil", age: 18, score: 85 },
+            { name: "zry", age: 21, score: 84 },
+            { name: "yyy", age: 21, score: 86 }
+        ]
+
+        function sortBy(field1, field2) {
+            return function (a, b) {
+                if (a[field1] == b[field1]) {
+                    return a[field2] - b[field2];
+                }
+                return a[field1] - b[field1];
+            }
+        }
+
+        function sortByS(field1, field2) {
+            return function (v) {
+                return v[field2] > 80 && v[field2] < 100
+            }
+        }
+
+        console.table(arr.sort(sortBy("age", "score")))
+        // console.table(arr.filter(sortByS("age", "score")))
+
+        arr.sort(function (a, b) {
+            if (a.age < b.age) {
+                return -1;
+            } else if (a.age > b.age) {
+                return 1;
+            } else if (a.age = b.age) {
+                return a.name > b.name ? 1 : -1
+            }
+
+        });
+        // for (var i = 0; i < arr.length; i++) {
+        //     console.log(arr[i].name + ", " + arr[i].age);
+        // }
+
+    </script>
+</body>
+
+</html>

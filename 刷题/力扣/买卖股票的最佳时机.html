@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+        *买卖股票利益最大化
+        * @param {number[]} prices
+        * @return {number}
+        */
+        var maxProfit = function (prices) {
+            let minprice =  Math.max.apply(null,prices)
+            let maxprofit = 0;
+            for (let i = 0; i < prices.length; i++) {
+                if (prices[i] < minprice) {
+                    minprice = prices[i];
+                } else if (prices[i] - minprice > maxprofit) {
+                    maxprofit = prices[i] - minprice;
+                }
+            }
+            return maxprofit;
+        };
+        console.log(maxProfit([2, 4, 1])) 
+    </script>
+</body>
+
+</html>

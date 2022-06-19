@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //动态规划解法求最大乘积    时间复杂度O(n)
+        let arr = [3, 2, -1, 7, -4, 5, 9, -3, 10]
+
+        let resultAll = function (arr) {
+            if (arr.length == 0) {
+                return
+            }
+            let max = arr[0], min = arr[0], maxend = 0, result = 0;
+            for (let i = 1; i < arr.length; i++) {
+                maxend = Max(max * arr[i], min * arr[i], arr[i])
+                // console.log('max:' + maxend)
+                min = Min(max * arr[i], min * arr[i], arr[i])
+                // console.log('min:' + min)
+                max = maxend
+                result = Math.max(result, max)
+            }
+            return result
+
+        }
+        Max = (a, b, c) => { return Math.max(a, Math.max(b, c)) }
+        Min = (a, b, c) => { return Math.min(a, Math.min(b, c)) }
+
+        // console.log(resultAll(arr))
+
+        //双重for循环 时间复杂度O(n*n)
+        let arra = [3, 2, -1]
+        let arrson = function (arr) {
+            let arrs=new Array();
+            let arrson=[]
+            let max=0;
+            if (arr.length == 0) {
+                return
+            }
+            for (let i = 0; i < arr.length; i++) {
+                arrs = []
+                for (let j = i; j < arr.length; j++) {
+                    arrs.push(arr[j])
+                    if(arrs.reduce((a,b)=>{return a*b})>max){
+                        max=arrs.reduce((a,b)=>{return a*b})
+                        arrson=[...arrs]
+                    }
+                }
+            }
+            return `乘积最大子串:${arrson}  最大值:${max}`
+        }
+        // console.log(arrson(arr))
+
+    </script>
+</body>
+
+</html>

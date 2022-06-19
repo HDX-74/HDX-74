@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+     * @param {string} word
+     * @param {character} ch
+     * @return {string}匹配字符反转
+     */
+        // var reversePrefix = function (word, ch) {
+        //     if (word.indexOf(ch)) {
+        //         let arr = new Array();
+        //         let last = word.indexOf(ch);
+        //         let str='';
+        //         for (let i = 0; i <= last; i++) {
+        //             arr.push(word.charAt(i))
+        //         }
+        //         for (let i = 0; i <= last; i++) {
+        //             str += arr.pop()
+        //         }
+        //         return str + word.substring(last+1, word.length )
+        //     }
+        //     else return word;
+        // };
+        // console.log(reversePrefix('xyxzxe','z'))
+
+        /**
+     * @param {number[][]} rectangles
+     * @return {number}
+     */
+        // var interchangeableRectangles = function (rectangles) {
+        //     let num=0;
+        //     let arr=new Array()
+        //     arr= rectangles.map(item=>{return item[0]/item[1]})
+        //     for(let i=0;i<arr.length-1;i++){
+        //         for(let j=i+1;j<arr.length;j++){
+        //             console.log(arr[i])
+        //             if(arr[i]===arr[j]){
+        //                 num++
+        //             }
+        //         }
+        //     }
+        //     return num
+        // };
+        // console.log(interchangeableRectangles([[4,8],[3,6],[10,20],[15,30]]))
+        var C = function () { this.foo = 'bar'; this.baz = 'bim'; };
+        C.prototype.bop = 'bip';
+        console.log(iterate(new C()));
+        function iterate(obj) {
+            let od = []
+            let i = 0;
+            let arr = Object.keys(obj)
+            arr.map(item => { od[i] = item + ':' + obj[item]; i++ })
+            return od
+        }
+
+    </script>
+</body>
+
+</html>

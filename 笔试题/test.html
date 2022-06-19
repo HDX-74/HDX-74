@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [
+            {
+                nameone: "0.6亿以上",
+                value: 1
+            },
+            {
+                nameone: "0.6亿以上",
+                value: 2
+            },
+            {
+                nameone: "0.5亿-0.6亿",
+                value: 55
+            },
+            {
+                nameone: "小于500万",
+                value: 44
+            },
+            {
+                nameone: "未知",
+                value: 17
+            }
+        ]
+        var obj = {}
+        var newarr = []
+        arr.map(item => {
+            if (obj[item.nameone]) {
+                newarr.map(node => {
+                    if (item.nameone == node.nameone) {
+                        node.value += item.value
+                    }
+                })
+            } else {
+                // console.log(obj[item.nameone])
+                obj[item.nameone] = 1
+                newarr.push(item)
+            }
+        })
+        console.log(newarr)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!--
+ * @Description: 
+ * @Author: 黄佳伟
+ * @Date: 2022-03-09 16:50:59
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*三角形的实现原理是利用了元素边框连接处的等分原理。*/
+        .triangle {
+            width: 0;
+            height: 0;
+            border-width: 100px;
+            border-style: solid;
+            border-color: turquoise orange transparent
+        }
+
+        /*实现原理参考自适应正方形和水平居中方式*/
+
+        /* 使用绝对定位 */
+        .box {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+
+            width: 10%;
+            height: 50px;
+            background: rgb(166, 71, 255);
+        }
+
+        /* 使用flex布局 */
+        .box1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: hotpink;
+            height: 500px;
+        }
+
+        .box2 {
+            background-color: rgb(252, 0, 13);
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="triangle"></div>
+    <div class="box"></div>
+    <!-- <div class="box1">
+        <div class="box2"></div>
+    </div> -->
+</body>
+
+</html>

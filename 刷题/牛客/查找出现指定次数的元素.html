@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = function (str, num) {
+            let set = new Set()
+            for (let i = 0; i < str.length; i++) {
+                if (str.match(eval("/" + str.charAt(i) + "/g")).length == num) {
+                    set.add(str.charAt(i))
+                }
+            }
+            return Array.from(set).map(item => { console.log(item) })
+        }
+        arr('abaccdeff', 1)
+
+        function find(str, num) {
+            let set = new Set()
+            for (let i = 0; i < str.length; i++) {
+                if (str.match(eval('/' + str.charAt(i) + '/g')).length == num) {
+                    set.add(str.charAt(i))
+                }
+            }
+            return Array.from(set).map(item => { console.log(item) })
+        }
+        find('abaccdeff', 1)
+    </script>
+</body>
+
+</html>

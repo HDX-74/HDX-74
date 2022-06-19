@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src='../js/queue.js'></script>
+    <!-- <script>
+        const queue = new Queue()
+        queue.enqueue('John')
+        queue.enqueue(1)
+        queue.enqueue('Jack')
+        queue.dequeue()
+        console.log(queue.size())
+
+        console.log(queue.toString())
+        const deque = new Deque()
+        deque.addBack(2)
+        deque.addFront("s")
+        deque.addBack("t")
+        console.log(deque.toString())
+    </script> -->
+
+    <!-- <script>
+        //击鼓传花循环队列
+        function hotPotato(elementsList, num) {
+            const queue = new Queue()
+            const eliminatedList = []
+            for (let i = 0; i < elementsList.length; i++) {
+                queue.enqueue(elementsList[i])
+            }
+            // console.log(queue.toString())
+            while (queue.size() > 1) {
+                for (let i = 0; i < num; i++) {
+                    queue.enqueue(queue.dequeue())//改变队列元素排序
+                    // console.log(queue.toString())
+                }
+                eliminatedList.push(queue.dequeue())
+                // console.log(eliminatedList.toString())
+            }
+            return {
+                eliminated: eliminatedList,
+                winner: queue.dequeue()
+            }
+        }
+        const names = ['John', 'Jack', 'Camila', 'Ingrid', 'Carl']
+        const result = hotPotato(names, 7)
+        result.eliminated.forEach((name,index)=>{
+            console.log(`${name}--${index}在击鼓传花中被淘汰`)
+        })
+        console.log(`胜利者：${result.winner}`)
+    </script> -->
+
+    <script>
+        //回文检查器
+        const palindromeChecker=str=>{
+            if(str===null||str===undefined||(str!==null&&str.length===0)){
+                return false
+            }
+            const queue = new Deque()
+            const strNew = str.split(' ').join('')
+            for(let i=0;i<strNew.length;i++){
+                queue.addBack(strNew.charAt(i))
+            }
+            let isPail=true
+            while(queue.size()>1){
+                if(queue.removeBack()!==queue.removeFront()){
+                    isPail = false
+                }
+            }
+            return isPail
+        }
+        
+        if(palindromeChecker("waw a")){
+            console.log('是回文数')
+        }else{
+            console.log('非回文数')
+        }
+    </script>
+</body>
+
+</html>
